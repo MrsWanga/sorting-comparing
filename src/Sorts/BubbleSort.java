@@ -1,5 +1,5 @@
 package Sorts;
-//Sprawdzamy całą tablicę od początku, jeżeli trafimy na parę elementów,
+// Sprawdzamy całą tablicę od początku, jeżeli trafimy na parę elementów,
 // w której większy poprzedza mniejszy to zamieniamy je miejscami.
 // Po przejściu całej tablicy znów zaczynamy przeszukiwać tą tablicę od początku.
 // Czynność powtarzamy tak długo aż podczas sprawdzania całej tablicy,
@@ -7,10 +7,10 @@ package Sorts;
 public class BubbleSort implements Sort{
     int tabSize;
     int[] tab;
-    int compares;
-    int swaps;
-    public int getCompares() {return compares;}
-    public int getSwaps() {
+    long compares;
+    long swaps;
+    public long getCompares() {return compares;}
+    public long getSwaps() {
         return swaps;
     }
 
@@ -37,7 +37,6 @@ public class BubbleSort implements Sort{
                 }
             }
         }
-
         return A;
     }
 
@@ -58,7 +57,6 @@ public class BubbleSort implements Sort{
                 }
             }
         }
-
         return A;
     }
     public String getTitle (){

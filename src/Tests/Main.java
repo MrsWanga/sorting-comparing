@@ -1,7 +1,6 @@
 package Tests;
 
-import Tables.CreaterArray;
-import Tables.PrinterArray;
+import Tables.*;
 import Sorts.*;
 import java.util.Random;
 import java.util.Scanner;
@@ -10,7 +9,6 @@ public class Main {
     public static void main(String[] args) {
 
         //Wczytywanie wartości
-        Random los = new Random();
         Scanner in = new Scanner(System.in);
         System.out.print("Ile liczb chcesz posortować?");
         int count = in.nextInt();
@@ -31,31 +29,30 @@ public class Main {
         int[] copyTab7=table.clone();
         int[] copyTab8=table.clone();
 
-
         System.out.println(PrinterArray.printArray(table));
         System.out.println();
 
         //Sortowanie rosnąco
         System.out.println("Sortowanie rosnąco");
-        CountSort sampleCountingAsc = new CountSort (copyTab1);
+        CountSort sampleCountAsc = new CountSort (copyTab1);
         BubbleSort sampleBubleAsc = new BubbleSort (copyTab2);
         InsertSort sampleInsertAsc = new InsertSort (copyTab3);
         QuickSort sampleQuickAsc = new QuickSort (copyTab4);
-        testAscending(sampleCountingAsc);
+        testAscending(sampleCountAsc);
         testAscending(sampleBubleAsc);
-        testAscending(sampleInsertAsc);
         testAscending(sampleQuickAsc);
+        testAscending(sampleInsertAsc);
 
         //Sortowanie malejąco
-        System.out.println("Sortowanie malejące");
+        System.out.println("Sortowanie malejąco");
         CountSort sampleCountingDesc = new CountSort (copyTab5);
         BubbleSort sampleBubleDesc = new BubbleSort (copyTab6);
         InsertSort sampleInsertDesc = new InsertSort (copyTab7);
         QuickSort sampleQuickDesc = new QuickSort (copyTab8);
         testDescending(sampleCountingDesc);
         testDescending(sampleBubleDesc);
-        testDescending(sampleInsertDesc);
         testDescending(sampleQuickDesc);
+        testDescending(sampleInsertDesc);
     }
 
     private static void testAscending(Sort sortType){
@@ -73,7 +70,7 @@ public class Main {
         long start=System.currentTimeMillis();
         System.out.println(sortType.getTitle());
         int[] SortedTab = sortType.sortTabDescending();
-        System.out.println(sortType);
+        System.out.println(PrinterArray.printArray(SortedTab));
         long stop=System.currentTimeMillis();
         System.out.println(sortType.getTime()+(stop-start));
         sortType.printStatistics();

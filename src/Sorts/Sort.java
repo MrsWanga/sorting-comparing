@@ -1,8 +1,8 @@
 package Sorts;
 
 public interface Sort {
-    public int getCompares() ;
-    public int getSwaps();
+    public long getCompares() ;
+    public long getSwaps();
     public int [] sortTabAscending();
     public int [] sortTabDescending();
     public String toString();

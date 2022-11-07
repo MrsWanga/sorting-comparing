@@ -1,14 +1,12 @@
 package Sorts;
 
-import Tables.PrinterArray;
-
 public class CountSort implements Sort{
     int tabSize;
     int[] tab;
-    int compares;
-    int swaps;
-    public int getCompares() {return compares;}
-    public int getSwaps() {
+    long compares;
+    long swaps;
+    public long getCompares() {return compares;}
+    public long getSwaps() {
         return swaps;
     }
 
@@ -43,7 +41,6 @@ public class CountSort implements Sort{
         //dodawanie elementów niewiększych niż i (w tablicy B)
         for (int i = 1; i <= max; i++) {
             B[i] = B[i] + B[i - 1];
-
             compares++;
         }
         //tworzenie posortowanej tablicy
@@ -83,14 +80,13 @@ public class CountSort implements Sort{
         //dodawanie elementów niewiększych niż i (w tablicy B)
         for (int i = 1; i <= max; i++) {
             B[i] = B[i] + B[i - 1];
-
             compares++;
         }
 
         //tworzenie posortowanej tablicy
         int[] C = new int[tabSize + 1];
         for (int i = 0; i < tabSize; i++) {
-            C[1+(tabSize-B[A[i]])%tabSize] = A[i];
+            C[1+(tabSize-B[A[i]])] = A[i];
             B[A[i]]--;
             compares++;
             swaps++;
